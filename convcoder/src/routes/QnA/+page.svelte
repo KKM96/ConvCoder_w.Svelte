@@ -1,5 +1,5 @@
 <script>
-    /** Open ai - code Translate function **/
+    /** Open ai - qna function **/
     let text;
     let output;
     import { Configuration, OpenAIApi } from 'openai';
@@ -10,30 +10,24 @@
     const openai = new OpenAIApi(configuration);
     const completion = async () => {
         output = await openai.createCompletion({
-            model: 'code-davinci-002',
-            prompt: "#Javascript to Python:\n Javascript:\n"+text+"\nPython:\n",
+            model: 'text-davinci-003',
+            prompt: text,
             max_tokens: 100,
             temperature: 0.0,
-            top_p: 1.0,
-            frequency_penalty: 0.0,
-            presence_penalty: 0.0,
-            stop: ['\n'],
         });
         output = output.data.choices[0].text;
     };
-
     /** src **/
-    import js from '$lib/images/javascript-icon.png';
-    import py from '$lib/images/python-icon.png';
+        import qna from '$lib/images/qna-icon.png';
+
 </script>
 
 <!-- Page Header -->
-<header class="bg-info bg-gradient text-white p-lg-5">
+<header class="bg-success bg-gradient text-white p-lg-5">
     <div class="container px-4 text-center">
-        <h1 class="fw-bolder">ConvCoder</h1>
-        <p class="lead"> Convert Javascript into Python </p>
-        <img src={js} width="60" height="60" alt="">
-        <img src={py} width="60" height="60" alt="">
+        <h1 class="fw-bolder">QnA</h1>
+        <p class="lead"> Ask question to ai </p>
+        <img src={qna} width="60" height="60" alt="">
     </div>
 </header><br><br>
 
@@ -42,18 +36,18 @@
     <div class="container px-4">
         <div class="row gx-4 justify-content-center">
             <div class="col-lg-10">
-                <!-- input Javascript -->
+                <!-- input Question -->
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Javascript</span>
+                    <span class="input-group-text" id="inputGroup-sizing-default">Question</span>
                     <input bind:value={text} type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
                 </div><br>
-                <!-- button to submit ( Convert ) -->
+                <!-- button to submit ( ask ) -->
                 <div class="d-grid gap-2">
-                    <button class="btn btn-primary" type="button" on:click={completion}> Convert </button>
+                    <button class="btn btn-primary" type="button" on:click={completion}> Ask </button>
                 </div><br>
-                <h3> Translate to Python</h3>
+                <h3> Answer for Question </h3>
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default"> Python </span>
+                    <span class="input-group-text" id="inputGroup-sizing-default"> Answer </span>
                     <span class="form-control">
                         {#if output}
                             {output}
@@ -65,11 +59,15 @@
     </div>
 </section><br>
 
-<!-- 질문을 표시-->
-<!-- {#if text}
+
+<!-- <input bind:value={text} /> <button on:click={completion}>Submit</button>
+
+<h3>Answer for question! </h3>
+
+{#if text}
     {text}
-{/if} -->
-<!-- <br /> -->
-<!-- {#if output}
+{/if}
+<br />
+{#if output}
     {output}
 {/if} -->

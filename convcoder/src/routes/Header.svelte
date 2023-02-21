@@ -1,27 +1,19 @@
-<script src="https://kit.fontawesome.com/ac5053a6b0.js" crossorigin="anonymous">
+<script>
+    import logo from '$lib/images/icons8-svelte.png';
 </script>
 
-<header>
-    <!-- Main Navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <i class="fa-regular fa-code-compare"></i>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                <li class="nav-item">
-                    <!--Home으로 버튼 -->
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <!--ConvCoder으로 버튼 -->
-                    <a class="nav-link" href="/ConvCoder">ConvCoder</a>
-                </li>
-        
-                </ul>
-            </div>
+<!-- Main Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container px-4">
+        <a class="navbar-brand" href="/">SveOpenai</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/ConvCoder">ConvCoder</a></li>
+                <li class="nav-item"><a class="nav-link" href="/QnA">QnA</a></li>
+            </ul>
         </div>
-    </nav>
-</header>
+    </div>
+</nav>
+<br>
