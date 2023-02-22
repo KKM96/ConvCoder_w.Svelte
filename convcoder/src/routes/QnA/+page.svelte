@@ -5,14 +5,14 @@
     import { Configuration, OpenAIApi } from 'openai';
 
     const configuration = new Configuration({
-        apiKey: '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'
+        apiKey: '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'
     });
     const openai = new OpenAIApi(configuration);
     const completion = async () => {
         output = await openai.createCompletion({
             model: 'text-davinci-003',
             prompt: text,
-            max_tokens: 100,
+            max_tokens: 300,
             temperature: 0.0,
         });
         output = output.data.choices[0].text;
